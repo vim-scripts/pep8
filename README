@@ -1,0 +1,9 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=2914
+
+You need to install this tool: http://github.com/cburroughs/pep8.py
+It's a simple program that just checks if your python code is pep-8 compliant.
+
+Pressing F5 will run it using the "quickfix" feature.
+This way you can "navigate" through errors using :cn and other standard commands.
+
+This is mostly copied from http://www.vim.org/scripts/script.php?script_id=891
