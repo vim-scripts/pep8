@@ -1,4 +1,4 @@
-function <SID>Pep8()
+function! <SID>Pep8()
   set lazyredraw
   " Close any existing cwindows.
   cclose
