@@ -1,3 +1,7 @@
+" To change mapping, just put
+" let g:pep8_map='whatever'
+" in your .vimrc
+" To change the color of
 function! <SID>Pep8()
   set lazyredraw
   " Close any existing cwindows.
@@ -26,7 +30,12 @@ function! <SID>Pep8()
   redraw!
   let tlist=getqflist() ", 'get(v:val, ''bufnr'')')
   if empty(tlist)
+	  if !hlexists('GreenBar')
+		  hi GreenBar term=reverse ctermfg=white ctermbg=darkgreen guifg=white guibg=darkgreen
+	  endif
+	  echohl GreenBar
 	  echomsg "PEP8 correct"
+	  echohl None
 	  cclose
   endif
 endfunction
