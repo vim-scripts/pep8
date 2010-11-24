@@ -24,15 +24,24 @@ function! <SID>Pep8()
   nnoremap <buffer> <silent> c :cclose<CR>
   set nolazyredraw
   redraw!
+  let tlist=getqflist() ", 'get(v:val, ''bufnr'')')
+  if empty(tlist)
+	  echomsg "PEP8 correct"
+	  cclose
+  endif
 endfunction
 
-if ( !hasmapto('<SID>PEP8()') && (maparg('<F5>') == '') )
-  map <F5> :call <SID>Pep8()<CR>
-  map! <F5> :call <SID>Pep8()<CR>
+  if !exists('g:pep8_map')
+    let g:pep8_map='<F5>'
+  endif
+if ( !hasmapto('<SID>PEP8()') && (maparg(g:pep8_map) == '') )
+  exe 'nnoremap <silent> '. g:pep8_map .' :call <SID>Pep8()<CR>'
+"  map <F5> :call <SID>Pep8()<CR>
+"  map! <F5> :call <SID>Pep8()<CR>
 else
   if ( !has("gui_running") || has("win32") )
     echo "Python PEP8 Error: No Key mapped.\n".
-          \ "<F5> is taken and a replacement was not assigned."
+          \ g:pep8_map ." is taken and a replacement was not assigned."
   endif
 endif
 
