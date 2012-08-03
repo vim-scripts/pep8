@@ -7,3 +7,9 @@ Pressing F5 will run it using the "quickfix" feature.
 This way you can "navigate" through errors using :cn and other standard commands.
 
 This is mostly copied from http://www.vim.org/scripts/script.php?script_id=891
+
+To ignore certain errors add pep8_ignore to your .vimrc followed by comma seperated list of error codes. ie:
+let g:pep8_ignore="E501,E128"
+
+To change key to execute add pep8_map to your .vimrc. ie:
+let g:pep8_map='<leader>8'
